@@ -4,27 +4,32 @@
 
 int main()
 {
-    //CHANGE PATHS
-    HINSTANCE handle = LoadLibrary(TEXT("C:\\Users\\markh\\OneDrive\\Documents\\Gamer repositories\\CaesarsCipher\\x64\\Debug\\CaesarsCipher.dll"));
+    //CHANGE PATHS //C:\\Users\\markh\\OneDrive\\Documents\\Gamer repositories\\PP assignments\\PP_assignment_3\\CaesarsCipher\\Debug\\CaesarsCipher.dll
+    HINSTANCE handle = LoadLibrary(TEXT("C:\\Users\\markh\\OneDrive\\Documents\\Gamer repositories\\PP assignments\\PP_assignment_3\\CaesarsCipher\\Debug\\CaesarsCipher.dll"));
+    DWORD err = GetLastError();
 
     typedef void(*encryptText)(char*, int);
     encryptText encrypt_ptr = (encryptText)GetProcAddress(handle, "encryptText");
+    err = GetLastError();
 
     typedef void(*decryptText)(char*, int);
     decryptText decrypt_ptr = (decryptText)GetProcAddress(handle, "decryptText");
+    err = GetLastError();
 
     typedef void(*printText)(char*);
     printText print_ptr = (printText)GetProcAddress(handle, "printText");
+    err = GetLastError();
 
-    int cmd;
+    int cmd = 0;
     char text[100];
     text[99] = '\0';
     int key = 0;
 
-    std::cout << "\nenter text - 1, encrypt - 2, decrypt - 3, print - 4: ";
-    std::cin >> cmd;
-
     while (1) {
+
+        std::cout << "\nenter text - 1 \nencrypt - 2 \ndecrypt - 3 \nprint - 4: ";
+        std::cin >> cmd;
+
         switch (cmd)
         {
         case 1:
@@ -33,6 +38,8 @@ int main()
             std::cout << "\nEnter text: ";
 
             fgets(text, sizeof(text), stdin);
+            std::cout << "\n text entered";
+
             break;
 
         case 2:
@@ -42,6 +49,7 @@ int main()
             std::cin >> key;
 
             encrypt_ptr(text, key);
+            std::cout << "\n text decrypted";
             break;
 
         case 3:

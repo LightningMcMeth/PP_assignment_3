@@ -8,13 +8,11 @@
 
 void encryptText(char* rawText, int key) {
 
-    if (key > 0 || key < 25) {
-        throw std::invalid_argument("\nInvalid key value.\n");
-    }
+    key = (key % 26 + 26) % 26;
 
     for (size_t i = 0; rawText[i] != '\0'; i++)
     {
-        if (rawText[i] == ' ') {
+        if (rawText[i] == ' ' || rawText[i] == '\n') {
             continue;
         }
 
@@ -27,14 +25,11 @@ void encryptText(char* rawText, int key) {
 
         rawText[i] = 'a' + (rawText[i] - 'a' + key) % 26;
     }
-
 }
 
 void decryptText(char* encryptedText, int key) {
 
-    if (key > 0 || key < 25) {
-        throw std::invalid_argument("\nInvalid key value.\n");
-    }
+    key = (key % 26 + 26) % 26;
 
     for (size_t i = 0; encryptedText[i] != '\0'; i++)
     {
