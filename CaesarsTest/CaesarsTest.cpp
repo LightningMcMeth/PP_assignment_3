@@ -2,10 +2,12 @@
 #include <string>
 #include <Windows.h>
 
+//C:\\Users\\Gamer\\Documents\\gamer directories\\university stuff\\PP_assignment_3\\CaesarsCipher\\Debug\\CaesarsCipher.dll
+//desktop path
 int main()
 {
-    //CHANGE PATHS //C:\\Users\\markh\\OneDrive\\Documents\\Gamer repositories\\PP assignments\\PP_assignment_3\\CaesarsCipher\\Debug\\CaesarsCipher.dll
-    HINSTANCE handle = LoadLibrary(TEXT("C:\\Users\\markh\\OneDrive\\Documents\\Gamer repositories\\PP assignments\\PP_assignment_3\\CaesarsCipher\\Debug\\CaesarsCipher.dll"));
+    //C:\\Users\\markh\\OneDrive\\Documents\\Gamer repositories\\PP assignments\\PP_assignment_3\\CaesarsCipher\\Debug\\CaesarsCipher.dll
+    HINSTANCE handle = LoadLibrary(TEXT("C:\\Users\\Gamer\\Documents\\gamer directories\\university stuff\\PP_assignment_3\\CaesarsCipher\\Debug\\CaesarsCipher.dll"));
     DWORD err = GetLastError();
 
     typedef void(*encryptText)(char*, int);

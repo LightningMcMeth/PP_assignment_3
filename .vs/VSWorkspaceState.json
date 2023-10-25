@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
+    "\\CaesarsCipher",
     "\\CaesarsTest"
   ],
-  "SelectedNode": "\\CaesarsTest",
+  "SelectedNode": "\\CaesarsCipher\\CaesarSource.cpp",
   "PreviewInSolutionExplorer": false
 }

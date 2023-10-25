@@ -7,44 +7,33 @@
 
 
 void encryptText(char* rawText, int key) {
+    int range = 128;
+    key = (key % range + range) % range;
 
-    key = (key % 26 + 26) % 26;
+    for (size_t i = 0; rawText[i] != '\0'; i++) {
 
-    for (size_t i = 0; rawText[i] != '\0'; i++)
-    {
         if (rawText[i] == ' ' || rawText[i] == '\n') {
-            continue;
-        }
-
-        if (std::isupper(rawText[i])) {
-
-            rawText[i] = 'A' + (rawText[i] - 'A' + key) % 26;
 
             continue;
         }
 
-        rawText[i] = 'a' + (rawText[i] - 'a' + key) % 26;
+        rawText[i] = (rawText[i] + key) % range;
     }
 }
 
 void decryptText(char* encryptedText, int key) {
+    int range = 128;
 
-    key = (key % 26 + 26) % 26;
+    key = (key % range + range) % range;
 
-    for (size_t i = 0; encryptedText[i] != '\0'; i++)
-    {
-        if (encryptedText[i] == ' ') {
-            continue;
-        }
+    for (size_t i = 0; encryptedText[i] != '\0'; i++) {
 
-        if (std::isupper(encryptedText[i])) {
-
-            encryptedText[i] = 'A' + (encryptedText[i] - 'A' - key) % 26;
+        if (encryptedText[i] == ' ' || encryptedText[i] == '\n') {
 
             continue;
         }
 
-        encryptedText[i] = 'a' + (encryptedText[i] - 'a' - key) % 26;
+        encryptedText[i] = (encryptedText[i] - key + range) % range;
     }
 }
 
