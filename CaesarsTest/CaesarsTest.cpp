@@ -7,7 +7,7 @@
 int main()
 {
     //C:\\Users\\markh\\OneDrive\\Documents\\Gamer repositories\\PP assignments\\PP_assignment_3\\CaesarsCipher\\Debug\\CaesarsCipher.dll
-    HINSTANCE handle = LoadLibrary(TEXT("C:\\Users\\Gamer\\Documents\\gamer directories\\university stuff\\PP_assignment_3\\CaesarsCipher\\Debug\\CaesarsCipher.dll"));
+    HINSTANCE handle = LoadLibrary(TEXT("C:\\Users\\markh\\OneDrive\\Documents\\Gamer repositories\\PP assignments\\PP_assignment_3\\CaesarsCipher\\Debug\\CaesarsCipher.dll"));
     DWORD err = GetLastError();
 
     typedef void(*encryptText)(char*, int);
@@ -51,7 +51,7 @@ int main()
             std::cin >> key;
 
             encrypt_ptr(text, key);
-            std::cout << "\n text decrypted";
+            std::cout << "\n text ecrypted";
             break;
 
         case 3:
@@ -59,6 +59,7 @@ int main()
             std::cin.ignore();
             std::cout << "\nEnter key: ";
             std::cin >> key;
+            std::cout << "\n text decrypted";
 
             decrypt_ptr(text, key);
             break;
